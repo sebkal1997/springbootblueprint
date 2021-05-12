@@ -15,6 +15,7 @@
 	<description>Spring Boot Template</description>
 	<properties>
 		<java.version>11</java.version>
+		<openapi.version>1.5.8</openapi.version>
 	</properties>
 	<dependencies>
 		<!-- Spring Boot -->
@@ -37,6 +38,12 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-mongodb</artifactId>
+		</dependency>
+		<!-- OpenApi -->
+		<dependency>
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-ui</artifactId>
+			<version>${openapi.version}</version>
 		</dependency>
 	</dependencies>
 
