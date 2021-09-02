@@ -23,5 +23,5 @@ server:
 springdoc:
   swagger-ui:
     path: /openapi/ui
-  api-doc:
+  api-docs:
     path: /openapi
