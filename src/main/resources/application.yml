@@ -12,7 +12,16 @@ spring:
       password: root
       database: test
       authentication-database: admin
+  security:
+    user:
+      name: local
+      password: local
 server:
   port: 8080
   session:
     timeout: 600
+springdoc:
+  swagger-ui:
+    path: /openapi/ui
+  api-doc:
+    path: /openapi
