@@ -23,7 +23,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/foo")
+@RequestMapping("api/v1")
 class FooController {
 
     @Autowired
@@ -36,7 +36,7 @@ class FooController {
                             schema = @Schema(implementation = Foo.class)) }),
             @ApiResponse(responseCode = "404", description = "Not found any Foo",
                     content = @Content) })
-    @GetMapping
+    @GetMapping(value = "/foo")
     public List<Foo> findAll() {
         return fooService.findAll();
     }
@@ -48,7 +48,7 @@ class FooController {
                             schema = @Schema(implementation = Foo.class)) }),
             @ApiResponse(responseCode = "404", description = "Foo not found",
                     content = @Content) })
-    @GetMapping(value = "/{id}")
+    @GetMapping(value = "/foo/{id}")
     public Optional<Foo> findById(@PathVariable("id") String id) {
         return fooService.findById(id);
     }
@@ -60,7 +60,7 @@ class FooController {
                             schema = @Schema(implementation = Foo.class)) }),
             @ApiResponse(responseCode = "400", description = "Wrong name of Foo",
                     content = @Content) })
-    @PostMapping
+    @PostMapping(value = "/foo")
     @ResponseStatus(HttpStatus.CREATED)
     public Foo create(@RequestParam String name) {
         return fooService.create(name);
@@ -73,7 +73,7 @@ class FooController {
                             schema = @Schema(implementation = Foo.class)) }),
             @ApiResponse(responseCode = "400", description = "Wrong name of Foo",
                     content = @Content) })
-    @PutMapping(value = "/{id}")
+    @PutMapping(value = "/foo/{id}")
     @ResponseStatus(HttpStatus.OK)
     public void update(@PathVariable("id") String id, @RequestParam String name) {
         fooService.update(id, name);
@@ -86,7 +86,7 @@ class FooController {
                             schema = @Schema(implementation = Foo.class)) }),
             @ApiResponse(responseCode = "404", description = "Not found Foo",
                     content = @Content) })
-    @DeleteMapping(value = "/{id}")
+    @DeleteMapping(value = "/foo/{id}")
     @ResponseStatus(HttpStatus.OK)
     public void delete(@PathVariable("id") String id) {
         fooService.delete(id);
